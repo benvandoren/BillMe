@@ -1,4 +1,30 @@
 Rails.application.routes.draw do
+  get 'billable/new'
+
+  get 'billable/create'
+
+  get 'billable/update'
+
+  get 'billable/destroy'
+
+  get 'billable/index'
+
+  get 'billable/show'
+
+  get 'projects/new'
+
+  get 'projects/create'
+
+  get 'projects/update'
+
+  get 'projects/edit'
+
+  get 'projects/destroy'
+
+  get 'projects/index'
+
+  get 'projects/show'
+
   root to: "users#new"
 
   match "/login", to: "sessions#new", via: :get

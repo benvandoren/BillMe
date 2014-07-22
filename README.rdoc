@@ -1,0 +1,3 @@
+== README
+
+Basic Authentication users can sign up, sign in, and sign out.

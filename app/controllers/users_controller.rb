@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
   	if @user.save
   		# session[:user_id] = @user.id
-      cookies[:auth_token] = @user.auth_token
+      sign_in @user
       redirect_to root_url, notice: 'Signed up!'
   	else
   		render 'new'

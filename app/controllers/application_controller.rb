@@ -3,13 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :current_user
-
-  private
-
-  def current_user
-    @current_user ||= User.where("auth_token =?", cookies[:auth_token]).first if cookies[:auth_token]
-  end
+  include SessionsHelper
 
   # def current_user
   #   @current_user ||= User.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]

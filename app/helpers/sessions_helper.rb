@@ -32,6 +32,7 @@ module SessionsHelper
 	end
 
 	def admin_user
+		user = current_user
 		unless user.type == "Customer"
 			store_location
 			redirect_to signin_path, notice: "Please sign in."

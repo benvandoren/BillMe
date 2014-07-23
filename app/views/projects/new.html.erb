@@ -1,2 +1,26 @@
-<h1>Projects#new</h1>
-<p>Find me in app/views/projects/new.html.erb</p>
+<h1>New Project</h1>
+<%= form_for @project do |f| %>
+	<% if @project.errors.any? %>
+		<div class="error_messages">
+			<h2>Form is invalid</h2>
+			<ul>
+				<% for message in @project.errors.full_messages %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<p>
+		<%= f.label :project_name %><br />
+		<%= f.text_field :project_name %>
+	</p>
+	<p>
+		<%= f.label :client_name %><br />
+		<%= f.text_field :client_name %>
+	</p>
+	<p>
+		<%= f.label :rate %><br />
+		<%= f.text_field :rate %>
+	</p>
+	<p class="button"><%= f.submit %></p>	
+<% end %>

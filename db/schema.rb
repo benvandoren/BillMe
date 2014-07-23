@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140723050309) do
+ActiveRecord::Schema.define(version: 20140723174939) do
 
   create_table "admins", force: true do |t|
     t.datetime "created_at"
@@ -22,7 +22,10 @@ ActiveRecord::Schema.define(version: 20140723050309) do
     t.decimal  "hours"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "project_id"
   end
+
+  add_index "billables", ["project_id"], name: "index_billables_on_project_id"
 
   create_table "customers", force: true do |t|
     t.datetime "created_at"
@@ -36,8 +39,10 @@ ActiveRecord::Schema.define(version: 20140723050309) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "customer_id"
+    t.integer  "admin_id"
   end
 
+  add_index "projects", ["admin_id"], name: "index_projects_on_admin_id"
   add_index "projects", ["customer_id"], name: "index_projects_on_customer_id"
 
   create_table "users", force: true do |t|

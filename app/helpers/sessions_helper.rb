@@ -31,6 +31,13 @@ module SessionsHelper
 		end
 	end
 
+	def admin_user
+		unless user.type == "Customer"
+			store_location
+			redirect_to signin_path, notice: "Please sign in."
+		end
+	end
+
 	def sign_out
 		current_user = nil
 		cookies.delete(:auth_token)

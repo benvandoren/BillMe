@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       if params[:remember_me]
-        cookies.permanent[:auth_token] = user.auth_token
+        sign_in_remember user
       else
-        cookies[:auth_token] = user.auth_token
+        sign_in user
       end
       redirect_to root_url, :notice => "Logged in!"
     else
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    cookies.delete(:auth_token)
+    sign_out
     redirect_to root_url, :notice => "Logged out!"
   end
 end

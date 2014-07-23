@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  root to: "customers#new"
+  root to: "sessions#new"
 
   match "/login", to: "sessions#new", via: :get
   match "/logout", to: "sessions#destroy", via: :get

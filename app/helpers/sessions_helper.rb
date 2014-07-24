@@ -32,9 +32,9 @@ module SessionsHelper
 	end
 
 	def admin_user
-		unless current_user.type == "Admin"
+		unless is_admin?
 			store_location
-			redirect_to login_path, notice: "Please sign in as an admin."
+			redirect_to root_path, notice: "You are not validated to view this page."
 		end
 	end
 

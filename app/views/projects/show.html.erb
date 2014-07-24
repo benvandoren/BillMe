@@ -1,2 +1,8 @@
-<h1>Projects#show</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
+<li>
+	<span class="project_name"><%= @project.project_name %></span>
+	<span class="client_name"><%= @project.client_name %></span>
+	<span class="client_name"><%= @project.rate %></span>
+	<% if is_admin? %>
+		<%= link_to "delete", @project, method: :delete, confirm: "Damn nigga, you sure?", title: @project.project_name %>
+	<% end %>
+</li>

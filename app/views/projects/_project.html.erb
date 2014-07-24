@@ -1,5 +1,5 @@
 <li>
-	<span class="project_name"><%= project.project_name %></span>
+	<span class="project_name"><%= link_to project.project_name,  project %></span>
 	<span class="client_name"><%= project.client_name %></span>
 	<span class="client_name"><%= project.rate %></span>
 	<% if is_admin? %>

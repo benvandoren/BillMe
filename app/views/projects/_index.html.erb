@@ -1,4 +1,15 @@
-<h3>Projects (<%= @current_user.projects.count %>)</h3>
-<ol class="projects">
-	<%= render @projects %>
-</ol>
+<% if signed_in? %>
+	<div class="row">
+		<div class="span8">
+			<h3>Projects (<%= @current_user.projects.count %>)</h3>
+			<ol class="projects">
+				<%= render @current_user.projects %>
+			</ol>
+		</div>
+	</div>
+<% else %>
+	<div class="center hero-unit">
+		<h1>BillMe</h1>
+		<%= link_to "Signup Now!", signup_path, class: "btn btn-large btn-primary" %>
+	</div>
+<% end %>

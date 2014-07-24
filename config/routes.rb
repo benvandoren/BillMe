@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  root to: "projects#index"
+  root to: "static_pages#home"
 
   #Users
   match "/login", to: "sessions#new", via: :get
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :sessions
   resources :password_resets
 
-  resources :projects
+  resources :projects, path: '/'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

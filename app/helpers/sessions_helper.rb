@@ -27,16 +27,19 @@ module SessionsHelper
 	def signed_in_user
 		unless signed_in?
 			store_location
-			redirect_to signin_path, notice: "Please sign in."
+			redirect_to login_path, notice: "Please sign in."
 		end
 	end
 
 	def admin_user
-		user = current_user
-		unless user.type == "Customer"
+		unless current_user.type == "Admin"
 			store_location
-			redirect_to signin_path, notice: "Please sign in."
+			redirect_to login_path, notice: "Please sign in as an admin."
 		end
+	end
+
+	def is_admin?
+		current_user.type == "Admin"
 	end
 
 	def sign_out

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  root to: "sessions#new"
+  root to: "projects#index"
 
   #Users
   match "/login", to: "sessions#new", via: :get

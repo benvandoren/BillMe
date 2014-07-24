@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :signed_in_user
-  before_filter :admin_user
+  before_filter :admin_user, except: [:show, :index]
 
   def new
     @project = Project.new
@@ -24,11 +24,13 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    @project = Project.find(params[:id])
     @project.destroy
     redirect_to root_path
   end
 
   def index
+    @projects = current_user.projects.paginate(page: params[:page])
   end
 
   def show

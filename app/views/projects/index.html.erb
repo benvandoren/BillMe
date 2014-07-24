@@ -1,2 +1,12 @@
-<h1>Projects#index</h1>
-<p>Find me in app/views/projects/index.html.erb</p>
+<% if signed_in? %>
+	<div class="row">
+		<div class="span8">
+			<%= render 'projects/index' %>
+		</div>
+	</div>
+<% else %>
+	<div class="center hero-unit">
+		<h1>BillMe</h1>
+		<%= link_to "Signup Now!", signup_path, class: "btn btn-large btn-primary" %>
+	</div>
+<% end %>

@@ -14,7 +14,9 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = Customer.paginate(page: params[:page])
+    @customers = Customer.paginate(page: params[:page])
+    @admins = Admin.paginate(page: params[:page])
   end
 
   private

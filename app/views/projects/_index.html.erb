@@ -1,6 +1,6 @@
 <% if signed_in? %>
 	<div class="row">
-		<div class="span8">
+		<div class="span8 well">
 			<h3>Projects (<%= @current_user.projects.count %>)</h3>
 			<ol class="projects">
 				<%= render @current_user.projects %>

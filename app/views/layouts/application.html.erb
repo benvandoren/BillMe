@@ -7,29 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div id='user_nav'>
-		<% if current_user %>
-		<%= link_to "Home", root_path %>
-			<% if is_admin? %>
-				<%= link_to "New", new_project_path %>
-				<%= link_to "Users", users_path %>
-			<% end %>
-			Logged in as <%= current_user.email %>.
-			<%= link_to "Log out", logout_path %>
-		<% else %>
-			<%= link_to "Sign up", signup_path %> or
-			<%= link_to "Log in", login_path %>
-		<% end %>
+	<div class="page-container">
+		<%= render 'layouts/navigation' %>
+		<div class="container">
+			<div class="row ">
+				<div class="col-xs-12 col-sm-9">
+					<% flash.each do |name, msg| %>
+						<%= content_tag :div, msg, id: "flash#{name}" %>
+					<% end %>
+
+					<%= yield %>
+
+
+					<%= debug(params) if Rails.env.development? %>
+				</div>
+			</div>
+		</div>
 	</div>
-
-	<% flash.each do |name, msg| %>
-		<%= content_tag :div, msg, id: "flash#{name}" %>
-	<% end %>
-
-	<%= yield %>
-
-
-	<%= debug(params) if Rails.env.development? %>
-
 </body>
 </html>

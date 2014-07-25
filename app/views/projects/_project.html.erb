@@ -1,6 +1,7 @@
 <li>
 	<span class="project_name"><%= link_to project.project_name,  project %></span><br />
 	<span class="client_name">Client: <%= project.client_name %></span><br />
+	<span class="admin_email">Admin: <%= User.find(project.admin_id).email %></span><br /> 
 	<span class="rate">Rate: <%= project.rate %>/hr</span><br />
 	<% if is_admin? %>
 		<%= button_to "delete", project, method: :delete, confirm: "Damn nigga, you sure?", title: project.project_name %>

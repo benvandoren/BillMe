@@ -30,7 +30,9 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = current_user.projects.paginate(page: params[:page])
+    @projects = Project.all 
+    # @admin = User.find(project.admin_id).email
+    # current_user.projects.paginate(page: params[:page])
   end
 
   def show

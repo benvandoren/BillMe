@@ -2,9 +2,9 @@
 Keep track of projects between Admins and Customers. Track time worked and amount owed.
 
 ==TODO Immediately
-- Create Users index for admins to be able to crud.
 - Link projects to billables table and make it possible to append hours worked
-- Connect projects to customers and admins
+- Connect projects to customers, enter email, create user with default password if not present
+- Many customers and admins for a single project
 - Edit project parameters
 - Connect projects to many admins
 - Tally total hours and dollars owed

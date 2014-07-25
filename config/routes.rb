@@ -7,17 +7,19 @@ Rails.application.routes.draw do
   match "/login", to: "sessions#new", via: :get
   match "/logout", to: "sessions#destroy", via: :get
   match "/signup", to: "customers#new", via: :get
-
-  #Projects
-  match "/new", to: "projects#new", via: :get
-
   resources :users
   resources :admins
   resources :customers
+
+  #Projects
+  # match "/new", to: "projects#new", via: :get
+  # match "/projects", to: "projects#index", via: :get
+  resources :projects
+
   resources :sessions
   resources :password_resets
 
-  resources :projects, path: '/'
+  # resources :projects, path: '/'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

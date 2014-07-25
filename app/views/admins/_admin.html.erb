@@ -1,4 +1,6 @@
 <li>
 	<span class="user_email"><%= admin.email %></span>
-	<%= button_to "delete", admin, method: :delete, confirm: "Damn nigga, you sure?" %>
+	<% unless current_user?(admin) %>
+		<%= button_to "delete", admin, method: :delete, confirm: "Damn nigga, you sure?" %>
+	<% end %>
 </li>

@@ -3,6 +3,6 @@
 	<span class="client_name">Client: <%= project.client_name %></span><br />
 	<span class="rate">Rate: <%= project.rate %>/hr</span><br />
 	<% if is_admin? %>
-		<%= link_to "delete", project, class: "btn  btn-danger", method: :delete, confirm: "Damn nigga, you sure?", title: project.project_name %>
+		<%= button_to "delete", project, method: :delete, confirm: "Damn nigga, you sure?", title: project.project_name %>
 	<% end %>
 </li>

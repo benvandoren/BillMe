@@ -1,4 +1,4 @@
-class CustomersController < ApplicationController
+class CustomersController < UsersController
   def new
   	@user = Customer.new
   end
@@ -12,9 +12,6 @@ class CustomersController < ApplicationController
   	else
   		render 'new'
   	end
-  end
-
-  def index
   end
 
   private

@@ -1,4 +1,4 @@
-<% if signed_in? %>
+<% if !@current_user.projects.nil? %>
 	<div class="row">
 		<div class="span8 well">
 			<h3>Projects (<%= @current_user.projects.count %>)</h3>
@@ -7,9 +7,8 @@
 			</ol>
 		</div>
 	</div>
+<% end %>
 <% else %>
 	<div class="center hero-unit">
-		<h1>BillMe</h1>
-		<%= link_to "Signup Now!", signup_path, class: "btn btn-large btn-primary" %>
-	</div>
-<% end %>
+		<h3>There are no projects<h3>
+
